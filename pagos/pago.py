@@ -3,4 +3,4 @@ class Pago:
         self.total = total
 
     def procesar(self) -> tuple[bool, str]:
-        raise NotImplementedError("Implementa procesar() en la clase hija")
+        raise NotImplementedError("Este método debe implementarse en las subclases.")

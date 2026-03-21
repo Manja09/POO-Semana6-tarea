@@ -8,8 +8,13 @@ class PagoTarjeta(Pago):
         self.cvv = cvv
 
     def procesar(self) -> tuple[bool, str]:
+        if self.total <= 0:
+            return False, "El total debe ser mayor que cero."
+
         if not (self.numero_tarjeta.isdigit() and len(self.numero_tarjeta) == 16):
             return False, "Tarjeta inválida (debe tener 16 dígitos)."
+
         if not (self.cvv.isdigit() and len(self.cvv) in (3, 4)):
             return False, "CVV inválido."
+
         return True, "Pago con tarjeta aprobado."
