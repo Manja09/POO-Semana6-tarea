@@ -1,0 +1,12 @@
+[project]
+name = "pythonproject5"
+version = "0.1.0"
+description = "Proyecto POO"
+authors = [
+    {name = "Edgar"}
+]
+dependencies = []
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

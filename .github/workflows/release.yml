@@ -1,0 +1,21 @@
+name: Release
+
+on:
+  push:
+    branches: [ "main", "feature/sistema-pagos" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Ejecutar proyecto
+        run: python main.py
