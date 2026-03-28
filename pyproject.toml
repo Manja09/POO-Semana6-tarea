@@ -1,13 +1,29 @@
 [project]
-name = "poo-b2-semana3-actividad"
+name = "poo-b2-semana4-actividad"
 version = "0.1.0"
-description = "Proyecto de Programación Orientada a Objetos con automatización de release y Docker"
+description = "Proyecto de Programación Orientada a Objetos refactorizado"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-  { name = "Tu Nombre" }
+    { name = "Tu Nombre" }
 ]
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
