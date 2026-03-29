@@ -5,7 +5,7 @@ description = "Proyecto de Programación Orientada a Objetos refactorizado"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-    { name = "Tu Nombre" }
+    { name = "Edgar Manjarrez" }
 ]
 
 [build-system]
