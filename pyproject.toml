@@ -1,29 +1,10 @@
 [project]
-name = "poo-b2-semana4-actividad"
+name = "poo-semana6"
 version = "0.1.0"
-description = "Proyecto de Programación Orientada a Objetos refactorizado"
-readme = "README.md"
+description = "Proyecto POO con Docker y GitHub Actions"
+authors = [{ name = "Edgar" }]
 requires-python = ">=3.10"
-authors = [
-    { name = "Edgar Manjarrez" }
-]
 
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
-[tool.black]
-line-length = 88
-target-version = ["py310"]
-
-[tool.ruff]
-line-length = 88
-target-version = "py310"
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "N", "UP", "B"]
-ignore = []
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["test"]
