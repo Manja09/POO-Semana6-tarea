@@ -8,4 +8,6 @@ class PagoTransferencia(Pago):
         self.referencia = referencia
 
     def procesar_pago(self):
-        return True
+        if len(self.clabe) >= 10 and self.referencia:
+            return True, "Pago por transferencia aprobado."
+        return False, "Pago por transferencia rechazado."

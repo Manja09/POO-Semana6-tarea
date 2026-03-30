@@ -8,4 +8,6 @@ class PagoTarjeta(Pago):
         self.cvv = cvv
 
     def procesar_pago(self):
-        return True
+        if len(self.numero_tarjeta) >= 16 and len(self.cvv) >= 3:
+            return True, "Pago con tarjeta aprobado."
+        return False, "Pago con tarjeta rechazado."

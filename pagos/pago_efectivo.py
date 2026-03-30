@@ -8,5 +8,6 @@ class PagoEfectivo(Pago):
 
     def procesar_pago(self):
         if self.monto_recibido >= self.monto:
-            return True
-        return False
+            cambio = self.monto_recibido - self.monto
+            return True, f"Pago en efectivo aprobado. Cambio: ${cambio:.2f}"
+        return False, "Pago en efectivo rechazado. Monto insuficiente."
