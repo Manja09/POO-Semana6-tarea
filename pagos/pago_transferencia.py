@@ -2,19 +2,12 @@ from pagos.pago import Pago
 
 
 class PagoTransferencia(Pago):
-    def __init__(self, total: float, banco: str, referencia: str):
-        super().__init__(total)
-        self.banco = banco
+    def __init__(self, monto: float, clabe: str, referencia: str = "REF123"):
+        super().__init__(monto)
+        self.clabe = clabe
         self.referencia = referencia
 
-    def procesar(self) -> tuple[bool, str]:
-        if self.total <= 0:
-            return False, "El total debe ser mayor que cero."
-
-        if not self.banco.strip():
-            return False, "El banco no puede estar vacío."
-
-        if not self.referencia.strip():
-            return False, "La referencia no puede estar vacía."
-
-        return True, "Pago por transferencia aprobado."
+    def procesar_pago(self):
+        if len(self.clabe) >= 10 and self.referencia:
+            return True, "Pago por transferencia aprobado."
+        return False, "Pago por transferencia rechazado."

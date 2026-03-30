@@ -1,6 +1,6 @@
 class Pago:
-    def __init__(self, total: float):
-        self.total = total
+    def __init__(self, monto: float):
+        self.monto = monto
 
-    def procesar(self) -> tuple[bool, str]:
-        raise NotImplementedError("Este método debe implementarse en las subclases.")
+    def procesar_pago(self):
+        raise NotImplementedError("Las subclases deben implementar procesar_pago().")
