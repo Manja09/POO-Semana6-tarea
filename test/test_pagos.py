@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from pagos.pago_efectivo import PagoEfectivo
 from pagos.pago_tarjeta import PagoTarjeta
 from pagos.pago_transferencia import PagoTransferencia
