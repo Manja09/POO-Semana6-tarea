@@ -3,16 +3,19 @@ from pagos.pago_tarjeta import PagoTarjeta
 from pagos.pago_transferencia import PagoTransferencia
 
 
-def test_pago_efectivo_aprobado():
-    pago = PagoEfectivo(100.0, 150.0)
-    assert pago.procesar()[0] is True
+def test_pago_efectivo():
+    pago = PagoEfectivo(100, 150)
+    resultado = pago.procesar_pago()
+    assert resultado[0] is True
 
 
-def test_pago_tarjeta_aprobado():
-    pago = PagoTarjeta(200.0, "1234567812345678", "123")
-    assert pago.procesar()[0] is True
+def test_pago_tarjeta():
+    pago = PagoTarjeta(200, "1234567890123456")
+    resultado = pago.procesar_pago()
+    assert resultado[0] is True
 
 
-def test_pago_transferencia_aprobado():
-    pago = PagoTransferencia(300.0, "BBVA", "REF001")
-    assert pago.procesar()[0] is True
+def test_pago_transferencia():
+    pago = PagoTransferencia(300, "CLABE1234567890")
+    resultado = pago.procesar_pago()
+    assert resultado[0] is True
