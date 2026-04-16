@@ -1,26 +1,14 @@
-import os
-import sys
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from pagos.pago_efectivo import PagoEfectivo
-from pagos.pago_tarjeta import PagoTarjeta
-from pagos.pago_transferencia import PagoTransferencia
+from servicios.gestores import GestorProductos
 
 
-def test_pago_efectivo():
-    pago = PagoEfectivo(100, 150)
-    resultado = pago.procesar_pago()
-    assert resultado[0] is True
+def test_agregar_producto_guarda_datos_correctamente():
+    gestor = GestorProductos()
 
+    producto = gestor.agregar("Laptop", 15000.0, 10)
 
-def test_pago_tarjeta():
-    pago = PagoTarjeta(200, "1234567890123456")
-    resultado = pago.procesar_pago()
-    assert resultado[0] is True
-
-
-def test_pago_transferencia():
-    pago = PagoTransferencia(300, "CLABE1234567890")
-    resultado = pago.procesar_pago()
-    assert resultado[0] is True
+    assert producto.id == 1
+    assert producto.nombre == "Laptop"
+    assert producto.precio == 15000.0
+    assert producto.stock == 10
+    assert producto.proveedor_id is None
+    assert len(gestor.listar()) == 1
